@@ -213,12 +213,14 @@ void GUI::render() noexcept
                 ImGui::EndTabItem();
             }
 
-            if (ImGui::BeginTabItem("额外功能")) {
-                ImGui::hotkey("菜单键", cheatManager.config->menuKey);
-                ImGui::Checkbox(cheatManager.config->heroName ? "基于英雄名称" : "基于玩家名称", &cheatManager.config->heroName);
-                ImGui::Checkbox("彩虹文本", &cheatManager.config->rainbowText);
-                ImGui::Checkbox("快速皮肤切换", &cheatManager.config->quickSkinChange);
-                ImGui::hoverInfo("允许您在不打开菜单的情况下，通过键盘分配的按键更改皮肤。");
+			if (ImGui::BeginTabItem("额外功能")) {
+				ImGui::hotkey("菜单键", cheatManager.config->menuKey);
+				ImGui::Checkbox("自动打开换肤菜单", &cheatManager.config->isOpen);
+				ImGui::hoverInfo("进入游戏后自动打开换肤菜单");
+				ImGui::Checkbox(cheatManager.config->heroName ? "基于英雄名称" : "基于玩家名称", &cheatManager.config->heroName);
+				ImGui::Checkbox("彩色文字", &cheatManager.config->rainbowText);
+				ImGui::Checkbox("快速换肤", &cheatManager.config->quickSkinChange);
+				ImGui::hoverInfo("允许您在不打开菜单的情况下，通过键盘分配的按键更改皮肤。");
 
                 if (cheatManager.config->quickSkinChange) {
                     ImGui::Separator();
